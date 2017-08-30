@@ -1,0 +1,44 @@
+{
+    "name": "@gladeye/redux-suite",
+    "version": "1.0.0-beta.1",
+    "description": "A collection of tools making working with redux a lot less boring over the time.",
+    "main": "dst/index.js",
+    "repository": "https://github.com/gladeye/redux-suite.git",
+    "author": "Gladeye Team <hello@gladeye.com>",
+    "license": "MIT",
+    "engines": {
+        "node": ">=7"
+    },
+    "scripts": {
+        "test": "run-s test:flow test:jest",
+        "test:jest": "jest",
+        "test:flow": "flow",
+        "build:babel": "babel --source-maps inline src -d dst",
+        "build": "yarn clean:dst && yarn run-p \"build:*\"",
+        "start": "yarn start:babel",
+        "start:babel": "yarn clean:dst && run-p \"build:babel -- --watch\"",
+        "clean:dst": "rimraf  dst"
+    },
+    "peerDependencies": {
+        "redux": "3.x",
+        "redux-logger": "3.x",
+        "redux-thunk": "2.x"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-jest": "^20.0.3",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-plugin-module-resolver": "^2.7.1",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-flow": "^6.23.0",
+        "babel-preset-stage-2": "^6.24.1",
+        "flow-bin": "^0.53.1",
+        "jest": "^20.0.4",
+        "npm-run-all": "^4.1.1",
+        "redux": "^3.7.2",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.2.0",
+        "rimraf": "^2.6.1"
+    }
+}
