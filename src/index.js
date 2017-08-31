@@ -8,8 +8,6 @@ import {
 import thunk from "redux-thunk";
 import ReduxAction from "./lib/ReduxAction";
 
-let store;
-
 export function createNamespace(
     name: string,
     constants: Array<string>
@@ -53,7 +51,7 @@ export function createReducer(cases: Object, defaultState: any): Function {
 export function createStore(
     reducers: Object,
     options: { isDev: boolean } = { isDev: false }
-): void {
+): Object {
     const reducer = combineReducers(reducers);
     let middleware = [thunk];
     let compose = composeDefault;
@@ -77,7 +75,7 @@ export function createStore(
         compose = composeWithDevTools;
     }
 
-    store = createStoreDefault(
+    return createStoreDefault(
         reducer,
         {},
         compose(applyMiddleware(...middleware))
