@@ -10,7 +10,7 @@ describe('createNamespace()', () => {
                 output.BAZ = "FOO";
             }
 
-            expect(assign).toThrowError(TypeError);
+            expect(assign).toThrowError();
         });
     });
 });
