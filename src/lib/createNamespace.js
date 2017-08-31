@@ -1,4 +1,6 @@
 // @flow
+import Immutable from "seamless-immutable";
+
 export default function createNamespace(
     name: string,
     constants: Array<string>
@@ -11,5 +13,5 @@ export default function createNamespace(
         output[constant] = key;
     });
 
-    return output;
+    return Immutable.from(output);
 }
